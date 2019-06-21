@@ -12,7 +12,6 @@ export const Container = styled.header`
   height: 100px;
   width: 100%;
   justify-content: space-between;
-  margin: 0;
   background: #2497b2;
 `;
 

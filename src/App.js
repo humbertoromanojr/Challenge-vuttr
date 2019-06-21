@@ -4,14 +4,21 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import Header from './components/Header';
+import Content from './components/Content';
+import Footer from './components/Footer';
+
 import './styles/global';
-import { Container } from './styles/components';
+import { Wrapper, Container } from './styles/components';
 
 const App = () => (
   <Provider store={store}>
-    <Container>
+    <Wrapper>
       <Header />
-    </Container>
+      <Container>
+        <Content />
+      </Container>
+      <Footer />
+    </Wrapper>
   </Provider>
 );
 
