@@ -3,11 +3,15 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 
+import Header from './components/Header';
+import './styles/global';
+import { Container } from './styles/components';
+
 const App = () => (
   <Provider store={store}>
-    <div className="App">
-      <h1>VUTTR</h1>
-    </div>
+    <Container>
+      <Header />
+    </Container>
   </Provider>
 );
 
