@@ -13,6 +13,11 @@ export const Container = styled.header`
   width: 100%;
   justify-content: space-between;
   background: #2497b2;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 `;
 
 export const Search = styled.div`

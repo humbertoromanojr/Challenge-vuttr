@@ -8,8 +8,5 @@ export const Container = styled.footer`
   align-items: center;
   background: #2497b2;
   padding: 12px;
-
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  margin-top: 50px;
 `;
