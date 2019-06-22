@@ -11,6 +11,8 @@ import {
   Home,
 } from './styles';
 
+console.tron.log('teste !!');
+
 const Header = () => (
   <Container>
     <Menu>
