@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
-import API from 'apisauce';
-
 import { Container } from './styles';
-
-const baseURL = 'https://gitlab.com/bossabox/challenge-fake-api/tree/master';
 
 class Content extends Component {
   constructor(props) {
@@ -15,11 +11,26 @@ class Content extends Component {
     };
   }
 
+  _handleGet() {
+    ApiCall.get('/tools').then((response) => {
+      this.setState({
+        data: response.data.id,
+      });
+    });
+    /* .catch(error => {
+      console.log(error)
+    }) */
+  }
+
+  _handlePost() {}
+
   render() {
     return (
       <Container>
+        <div>{this.state.data ? this.state.data : null}</div>
         <div>
-          <p>teste</p>
+          <button onClick={this._handleGet}>Get</button>
+          <button>Post</button>
         </div>
       </Container>
     );
