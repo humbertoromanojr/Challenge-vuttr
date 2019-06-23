@@ -6,7 +6,16 @@ import PropTypes from 'prop-types';
 import { Creators as ToolsListActions } from '../../store/ducks/toolsList';
 
 import {
-  Container, ToolsListItem, Delete, HeaderItem,
+  Container,
+  ToolsListItem,
+  Delete,
+  HeaderItem,
+  Description,
+  Tags,
+  Form,
+  ButtonAdd,
+  InputSearch,
+  CheckBox,
 } from './styles';
 
 class Content extends Component {
@@ -35,14 +44,28 @@ class Content extends Component {
           <h1>VUTTR</h1>
           <h3>Very Useful Tools to Remember</h3>
         </header>
+        <Form>
+          <InputSearch>
+            <input type="text" size="10" placeholder="search" />
+          </InputSearch>
+          <CheckBox>
+            <input type="checkbox" value="tags" name="tags" /> <small>search in tags only</small>
+          </CheckBox>
+          <ButtonAdd>
+            <small>Add</small>
+          </ButtonAdd>
+        </Form>
 
         {this.props.toolsList.data.map(tools => (
           <ToolsListItem key={tools.id}>
             <HeaderItem>
               {tools.title}
-              <Delete>Remover</Delete>
+              <Delete>
+                <small>Remover</small>
+              </Delete>
             </HeaderItem>
-            {tools.description}#{tools.tags}
+            <Description>{tools.description}</Description>
+            <Tags>#{tools.tags}</Tags>
           </ToolsListItem>
         ))}
       </Container>

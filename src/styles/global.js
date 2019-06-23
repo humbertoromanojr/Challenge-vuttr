@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   }
   html, body, #root{
     height: 100%;
+    background-color: #dedce1;
   }
   body{
     text-rendering: optimizeLegibility !important;
