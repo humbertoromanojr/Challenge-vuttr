@@ -1,7 +1,5 @@
 ### About Packages in Project
 
-Quais ferramentas foram usadas, como e por quê;
-
 # Axios
 
 usado para poder comsumir a API, nesse caso eu usei um arquivo externo para instanciar a API, nesse arquivo:
