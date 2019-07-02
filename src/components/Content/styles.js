@@ -4,6 +4,7 @@ import DeleteIcon from '../../assets/images/delete2.svg';
 import CloseIcon from '../../assets/images/close.svg';
 import AddIcon from '../../assets/images/plus.svg';
 import InputSearchIcon from '../../assets/images/search.svg';
+import EditIcon from '../../assets/images/share.svg';
 
 export const Container = styled.div`
   display: flex;
@@ -53,12 +54,56 @@ export const InputSearch = styled.div`
   }
 `;
 
+export const FormModal = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: left;
+  padding: 20px;
+
+  span {
+    display: flex;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  label {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  button {
+    align-items: right;
+  }
+`;
+
 export const CheckBox = styled.div`
   display: flex;
   align-items: left;
 
   small {
     margin-top: 2px;
+  }
+`;
+
+export const ContainerButtonTop = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 13px;
+  height: 22px;
+
+  div {
+    padding-left: 10px;
   }
 `;
 
@@ -134,7 +179,8 @@ export const AlignHorizontalRight = styled.div`
   justify-content: flex-end;
   width: 100%;
 
-  button {
+  button,
+  input {
     height: 22px;
     border: 0;
     margin-right: 10px;
@@ -157,6 +203,24 @@ export const Delete = styled.div`
     align-items: right;
     box-shadow: 1px 2px 1px 2px #121212;
     background-color: #fff;
+  }
+`;
+
+export const ButtonEdit = styled.div`
+  width: flex;
+  align-items: center;
+  font-size: 12px;
+  height: 32px;
+  border: solid 2px #666;
+  width: 90px;
+
+  input {
+    width: 180px;
+    height: 32px;
+    border: 0;
+
+    padding-left: 40px;
+    background: url(${EditIcon}) no-repeat 7px center;
   }
 `;
 

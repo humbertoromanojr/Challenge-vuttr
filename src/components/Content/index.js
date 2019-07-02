@@ -18,13 +18,17 @@ import {
   Tags,
   Form,
   ButtonAddHome,
+  ButtonEdit,
   InputSearch,
+  FormModal,
   CheckBox,
   ContainerModalDelete,
   HeaderModalDelete,
+  ContainerButtonTop,
 } from './styles';
 
 import DeleteIcon from '../../assets/images/delete2.svg';
+import EditIcon from '../../assets/images/share.svg';
 
 class Content extends Component {
   static propTypes = {
@@ -88,6 +92,12 @@ class Content extends Component {
   openModal2() {
     this.setState({
       showDelete: true,
+    });
+  }
+
+  openModal3() {
+    this.setState({
+      showModal: true,
       isEdit: true,
     });
   }
@@ -147,10 +157,16 @@ class Content extends Component {
           <ToolsListItem key={tool.id}>
             <AlignHorizontal>
               <span>{tool.title}</span>
-              <div>
-                <img src={DeleteIcon} width="10" height="10" alt="Icon delete" />
-                <input type="button" value="Remove" onClick={() => this.openModal2()} />
-              </div>
+              <ContainerButtonTop>
+                <div>
+                  <img src={EditIcon} width="10" height="10" alt="Icon delete" />
+                  <input type="button" value="Edir" onClick={() => this.openModal3()} />
+                </div>
+                <div>
+                  <img src={DeleteIcon} width="10" height="10" alt="Icon delete" />
+                  <input type="button" value="Remove" onClick={() => this.openModal2()} />
+                </div>
+              </ContainerButtonTop>
             </AlignHorizontal>
             <Description>{tool.description}</Description>
             <span>{tool.link}</span>
@@ -190,6 +206,82 @@ class Content extends Component {
               </ContainerModalDelete>
             </Modal>
           </section>
+
+          {/* form Modal Add */}
+          <section>
+            <Modal
+              visible={this.state.visible}
+              width="400"
+              height="400"
+              effect="fadeInUp"
+              onClickAway={() => this.closeModal()}
+            >
+              <div>
+                <FormModalAdd />
+              </div>
+            </Modal>
+          </section>
+
+          {/* form Modal Update */}
+          <section>
+            <Modal
+              visible={this.state.showModal}
+              width="400"
+              height="370"
+              effect="fadeInUp"
+              onClickAway={() => this.closeModal()}
+            >
+              <FormModal>
+                <form onSubmit={this.updateTool}>
+                  <div>
+                    <span>Update tool</span>
+
+                    <label>Tool Name</label>
+                    <input
+                      type="text"
+                      onChange={this.handleChange}
+                      value={tool.title}
+                      name="title"
+                    />
+                    <label>Tool Link</label>
+                    <input
+                      type="text"
+                      onChange={this.handleChange}
+                      value={this.state.link}
+                      name="link"
+                    />
+
+                    <label>Tool description</label>
+                    <textarea
+                      cols={20}
+                      rows={5}
+                      name="description"
+                      onChange={this.handleChange}
+                      value={this.state.description}
+                    />
+                    <label>Tags</label>
+                    <input
+                      type="text"
+                      onChange={this.handleChange}
+                      value={this.state.tags}
+                      name="tags"
+                    />
+                  </div>
+                  <AlignHorizontalRight>
+                    <button>Cancel</button>
+                    <div>
+                      <input
+                        type="button"
+                        value="EDIT"
+                        type="submit"
+                        onClick={() => this.updateTool(tool.id)}
+                      />
+                    </div>
+                  </AlignHorizontalRight>
+                </form>
+              </FormModal>
+            </Modal>
+          </section>
         </div>
       ))
     ) : (
@@ -214,20 +306,6 @@ class Content extends Component {
           </ButtonAddHome>
         </Form>
         {toolList}
-        {/* form Modal Add */}
-        <section>
-          <Modal
-            visible={this.state.visible}
-            width="400"
-            height="400"
-            effect="fadeInUp"
-            onClickAway={() => this.closeModal()}
-          >
-            <div>
-              <FormModalAdd />
-            </div>
-          </Modal>
-        </section>
       </Container>
     );
   }
