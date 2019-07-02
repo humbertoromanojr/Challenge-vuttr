@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-import DeleteIcon from '../../assets/images/delete.svg';
+import DeleteIcon from '../../assets/images/delete2.svg';
+import CloseIcon from '../../assets/images/close.svg';
 import AddIcon from '../../assets/images/plus.svg';
 import InputSearchIcon from '../../assets/images/search.svg';
 
 export const Container = styled.div`
-  height: 100%;
-
   display: flex;
   flex: 1;
+  height: 100%;
   justify-content: center;
   align-content: center;
   align-items: center;
@@ -62,20 +62,33 @@ export const CheckBox = styled.div`
   }
 `;
 
-export const ButtonAdd = styled.button`
-  width: flex;
+export const ButtonAddHome = styled.div`
+  display: flex;
   align-items: center;
   font-size: 13px;
   height: 22px;
+  border: solid 2px #666;
   width: 70px;
-  border: 2;
-  background: #fff url(${AddIcon}) no-repeat 7px center;
+  /* push checkbox left */
+  margin-left: 170px;
 
-  small {
-    color: #666;
-    justify-content: center;
-    align-items: center;
-    padding-left: 5px;
+  input {
+    width: 70px;
+    height: 22px;
+    border: 0;
+    background: #fff url(${AddIcon}) no-repeat 7px center;
+  }
+`;
+
+export const Close = styled.a`
+  font-size: 10px;
+  background: url(${CloseIcon}) no-repeat 7px center;
+
+  a {
+    font-size: 14px;
+    text-decoration: none;
+    padding-left: 50px;
+    color: #222;
   }
 `;
 
@@ -86,30 +99,65 @@ export const ToolsListItem = styled.div`
   align-content: center;
   flex-direction: column;
   padding: 10px;
-  height: 100px;
+  height: 150px;
   width: 500px;
-  border: solid 1px #454545;
+  box-shadow: 2px 1px 2px 1px #454545;
   background-color: #fff;
 
   margin-bottom: 20px;
 `;
 
-export const HeaderItem = styled.div`
+export const AlignHorizontal = styled.div`
   display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-between;
+
+  button {
+    width: 70px;
+    height: 22px;
+    border: 0;
+    box-shadow: 2px 1px 2px 1px #454545;
+    background-color: #fff;
+  }
+
+  input {
+    border: 0;
+    background-color: #fff;
+  }
+`;
+
+export const AlignHorizontalRight = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+
+  button {
+    height: 22px;
+    border: 0;
+    margin-right: 10px;
+    box-shadow: 1px 2px 1px 2px #121212;
+    background-color: #fff;
+  }
 `;
 
 export const Delete = styled.div`
-  margin-right: 5px;
-  height: 20px;
-  width: 40px;
-  font-size: 14px;
-  margin-top: 3px;
-  padding-left: 30px;
-  margin-right: 20px;
-  background: url(${DeleteIcon}) no-repeat 7px center;
+  display: flex;
+  align-content: right;
+  align-items: right;
+  font-size: 13px;
+  height: 22px;
+
+  input {
+    height: 22px;
+    border: 0;
+    align-content: right;
+    align-items: right;
+    box-shadow: 1px 2px 1px 2px #121212;
+    background-color: #fff;
+  }
 `;
 
 export const Description = styled.div`
@@ -117,7 +165,8 @@ export const Description = styled.div`
   flex: 1;
   font-size: 16;
   color: #666;
-  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
 export const Tags = styled.div`
@@ -127,4 +176,26 @@ export const Tags = styled.div`
   font-size: 18;
   font-weight: bold;
   color: #222;
+`;
+
+export const ContainerModalDelete = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 20px;
+
+  form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+`;
+
+export const HeaderModalDelete = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-content: left;
 `;

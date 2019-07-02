@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './config/reactotron';
 
 import store from './store';
@@ -18,6 +18,7 @@ const App = () => (
       <Header />
       <Container>
         <Content />
+        <Router exact path="/" component={Content} />
       </Container>
       <Footer />
     </Wrapper>
