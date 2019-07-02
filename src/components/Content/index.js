@@ -18,7 +18,6 @@ import {
   Tags,
   Form,
   ButtonAddHome,
-  ButtonEdit,
   InputSearch,
   FormModal,
   CheckBox,
@@ -247,7 +246,7 @@ class Content extends Component {
                     <input
                       type="text"
                       onChange={this.handleChange}
-                      value={this.state.link}
+                      value={this.props.link}
                       name="link"
                     />
 

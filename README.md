@@ -1,3 +1,38 @@
+### About Project
+
+Quais ferramentas foram usadas, como e por quê;
+
+# @material-ui core e icons
+
+Este pacote @material-ui/core e para fazer um layout melhor e mais profissional, e o @material-ui/icons e para estilizar os icones na aplicação
+
+exemplo:
+
+# Axios
+
+usado para poder comsumir a API, nesse caso eu usei um arquivo externo para instanciar a API, nesse arquivo:
+
+--- services/api.js
+
+exemplo:
+import axios from 'axios';
+
+const api = axios.create({
+baseURL: 'http://localhost:3001',
+});
+
+export default api;
+
+E depois ao montar o componente, o componentDidMount faz acontecer e mostrar a lista da API pelo method get:
+
+exemplo:
+componentDidMount() {
+api.get('/tools').then((res) => {
+...
+});
+});
+}
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
