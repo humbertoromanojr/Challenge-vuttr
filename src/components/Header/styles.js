@@ -20,12 +20,18 @@ export const Container = styled.header`
   right: 0;
 `;
 
+export const Form = styled.form`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+`;
+
 export const Search = styled.div`
   display: flex;
   align-items: center;
   border-radius: 10px;
   height: 20px;
-  width: 80%;
+  width: 90%;
 
   input {
     flex: 1;
@@ -48,7 +54,9 @@ export const ButtonSearch = styled.button`
   border-radius: 10px;
   background: #fff url(${SearchIcon}) no-repeat 7px center;
 
-  small {
+  button {
+    background: transparent;
+    border: 0;
     color: #666;
     justify-content: center;
     align-items: center;

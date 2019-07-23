@@ -1,8 +1,6 @@
-### About Packages in Project
+# About Packages in Project
 
-Quais ferramentas foram usadas, como e por quê;
-
-# Axios
+### Axios
 
 usado para poder comsumir a API, nesse caso eu usei um arquivo externo para instanciar a API, nesse arquivo:
 
@@ -27,7 +25,7 @@ api.get('/tools').then((res) => {
 });
 }
 
-# prop-types
+### prop-types
 
 Pacote que serve para facilitar a vida dos Devs, nele tem quais as Propriedades e Tipo de um component.
 
@@ -46,7 +44,7 @@ tags: PropTypes.string,
 }).isRequired,
 };
 
-# react-awesome-modal
+### react-awesome-modal
 
 Pacote para exibir a janela modal no projeto, e muito fácil de instalar, utilizar e alterar as telas de sua aplicação, foi utilizado para três telas: FormModalAdd, FormModalDelete e FormModalUpdate
 
@@ -74,7 +72,7 @@ import Modal from 'react-awesome-modal';
 
 link: https://github.com/shibe97/react-awesome-modal
 
-# react-router-dom
+### react-router-dom
 
 Este pacote serve para fazer a navegação de telas na aplicação, mais não foi necessário nesse projeto, foi configurado o básico, mesmo assim o deixei porque e um pacote geralmente sempre usado, afinal uma aplicação sempre tem sua navegação.
 
@@ -93,7 +91,7 @@ import Footer from './components/Footer';
   <Router exact path="/" component={Content} />
 </Container>
 
-# reactotron-react-js, reactotron-redux e reactotron-redux-saga
+### reactotron-react-js, reactotron-redux e reactotron-redux-saga
 
 Estes três pacotes servem para a mesma coisa, debugar sua aplicação com o Reactotron.
 
@@ -103,13 +101,13 @@ Estes três pacotes servem para a mesma coisa, debugar sua aplicação com o Rea
 
 os proóprios nomes são bem sugestivos e já conta o que ele fará em sua aplicação, nesse projeto eu não usei para Redux-saga, apenas configurei como padrão para debug.
 
-# redux e react-redux
+### redux e react-redux
 
 Este pacote e muito importa, nele e que fica 99% do estado de sua aplicaçãol ele no store gerencia e falicita nossa vida de Dev e gerencia todo o state de nossa aplicação, não irei me extender muito nessa questão, porque e um assunto complexo. Ele veio do conceito de Flux, unica fonte da verdade.
 
 Já o pacote react-redux, faz a ponte e liga o React ao Redux
 
-# Styled-components
+### Styled-components
 
 Este pacote e para fazer um layout melhor e mais profissional
 
@@ -138,7 +136,7 @@ return (
 
 }
 
-# Eslint, .editorconfig e Prettier
+### Eslint, .editorconfig e Prettier
 
 São pacotes de configuração de ambiente de Desenvolvimento, servem para um melhor desempenho em equipes que estão desenvolvendo o mesmo projeto.
 
@@ -146,20 +144,20 @@ São pacotes de configuração de ambiente de Desenvolvimento, servem para um me
 - .editorconfig: Serve para padronizar os Codes, de diferentes editores;
 - Prettier: Serve para deixar os Codes bem aninhados
 
-# SEO e history
+### SEO e history
 
 Sobre a atuais diretrizes do SEO para sua aplicação JS
 link: https://webmasters.googleblog.com/2015/10/deprecating-our-ajax-crawling-scheme.html
 
 O Pacote History serve para ajudar no SEO, para o pushState() dos navegadores, como tem explicado no link acima para os webmaters.googleblog
 
-# Suggestions for improvement to the challenge
+### Suggestions for improvement to the challenge
 
 01 - No desafio teria que ter um Footer, para ver o conhecimento em css para poder ver o grau de conhecimento em css, como alinhar todo o conteúdo do projeto no footer;
 
 02 - Nesse projeto do challenge e mais uma comprovação se o canditado sabe fazer um simpes CRUD, mais como não pediram o Update, isso também deveria pelo menos estar como Bonus;
 
-### the end
+# the end About Packages in Project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

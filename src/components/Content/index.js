@@ -7,6 +7,7 @@ import api from '../../services/api';
 import * as actions from '../../store/actions';
 
 import FormModalAdd from '../FormModalAdd';
+import FormModalEdit from '../FormModalEdit';
 
 import {
   Container,
@@ -19,7 +20,6 @@ import {
   Form,
   ButtonAddHome,
   InputSearch,
-  FormModal,
   CheckBox,
   ContainerModalDelete,
   HeaderModalDelete,
@@ -47,10 +47,12 @@ class Content extends Component {
     super(props);
 
     this.state = {
+      ...this.state,
       tools: [],
       isEdit: false,
-      visible: false,
-      showModal: false,
+      modalAdd: false,
+      modalDelete: false,
+      modalUpdate: false,
       title: this.props.title,
       link: this.props.link,
       description: this.props.description,
@@ -60,48 +62,42 @@ class Content extends Component {
 
   componentDidMount() {
     api.get('/tools').then((res) => {
-      console.log(res);
       this.setState({
-        ...this.state,
         tools: res.data,
-        isEdit: false,
-        visible: false,
-        showModal: false,
-        title: this.props.title,
-        link: this.props.link,
-        description: this.props.description,
-        tags: this.props.tags,
       });
     });
   }
 
   openModal() {
     this.setState({
-      visible: true,
-    });
-  }
-
-  closeModal() {
-    this.setState({
-      visible: false,
-      showDelete: false,
+      modalAdd: true,
     });
   }
 
   openModal2() {
     this.setState({
-      showDelete: true,
+      modalDelete: true,
     });
   }
 
   openModal3() {
     this.setState({
-      showModal: true,
+      modalUpdate: true,
       isEdit: true,
     });
   }
 
-  removeTool = (id) => {
+  closeModal() {
+    this.setState({
+      modalAdd: false,
+      modalDelete: false,
+      modalUpdate: false,
+    });
+  }
+
+  removeTool = (event, id) => {
+    event.preventDefault();
+
     this.props.removeTool(this.props.id);
 
     api
@@ -116,18 +112,9 @@ class Content extends Component {
       });
   };
 
-  handleChange = (event) => {
-    const { state } = this;
-
-    state[event.target.name] = event.target.value;
-
-    this.setState({
-      state,
-    });
-  };
-
   updateTool = (id) => {
-    console.tron.log('edit !!!');
+    // event.preventDefault();
+
     this.setState({ isEdit: true });
 
     const modifyTool = {
@@ -141,11 +128,21 @@ class Content extends Component {
     api
       .put(`/tools/${id}`, modifyTool)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.tools);
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  handleChange = (event) => {
+    const { state } = this;
+
+    state[event.target.name] = event.target.value;
+
+    this.setState({
+      state,
+    });
   };
 
   render() {
@@ -173,118 +170,77 @@ class Content extends Component {
           </ToolsListItem>
 
           {/* Form Modal Delete */}
-          <section>
-            <Modal
-              visible={this.state.showDelete}
-              width="400"
-              height="120"
-              effect="fadeInDown"
-              onClickAway={() => this.closeModal()}
-            >
-              <ContainerModalDelete>
-                <form onSubmit={this.removeTool}>
-                  <HeaderModalDelete>
-                    <div>
-                      <img src={DeleteIcon} width="10" height="10" alt="Icon delete" />
-                      <small> Remove tool</small>
-                    </div>
-                    <p>Você deseja deletar o registro {tool.title} ?</p>
-                  </HeaderModalDelete>
-                  <AlignHorizontalRight>
-                    <button>Cancel</button>
-                    <Delete>
-                      <input
-                        type="button"
-                        value="Yes, remove"
-                        type="submit"
-                        onClick={() => this.removeTool(tool.id)}
-                      />
-                    </Delete>
-                  </AlignHorizontalRight>
-                </form>
-              </ContainerModalDelete>
-            </Modal>
-          </section>
-
-          {/* form Modal Add */}
-          <section>
-            <Modal
-              visible={this.state.visible}
-              width="400"
-              height="400"
-              effect="fadeInUp"
-              onClickAway={() => this.closeModal()}
-            >
-              <div>
-                <FormModalAdd />
-              </div>
-            </Modal>
-          </section>
-
-          {/* form Modal Update */}
-          <section>
-            <Modal
-              visible={this.state.showModal}
-              width="400"
-              height="370"
-              effect="fadeInUp"
-              onClickAway={() => this.closeModal()}
-            >
-              <FormModal>
-                <form onSubmit={this.updateTool}>
+          <Modal
+            visible={this.state.modalDelete}
+            width="400"
+            height="120"
+            effect="fadeInDown"
+            onClickAway={() => this.closeModal()}
+          >
+            <ContainerModalDelete>
+              <form onSubmit={this.removeTool}>
+                <HeaderModalDelete>
                   <div>
-                    <span>Update tool</span>
-
-                    <label>Tool Name</label>
-                    <input
-                      type="text"
-                      onChange={this.handleChange}
-                      value={tool.title}
-                      name="title"
-                    />
-                    <label>Tool Link</label>
-                    <input
-                      type="text"
-                      onChange={this.handleChange}
-                      value={this.props.link}
-                      name="link"
-                    />
-
-                    <label>Tool description</label>
-                    <textarea
-                      cols={20}
-                      rows={5}
-                      name="description"
-                      onChange={this.handleChange}
-                      value={this.state.description}
-                    />
-                    <label>Tags</label>
-                    <input
-                      type="text"
-                      onChange={this.handleChange}
-                      value={this.state.tags}
-                      name="tags"
-                    />
+                    <img src={DeleteIcon} width="10" height="10" alt="Icon delete" />
+                    <small> Remove tool</small>
                   </div>
-                  <AlignHorizontalRight>
-                    <button>Cancel</button>
-                    <div>
-                      <input
-                        type="button"
-                        value="EDIT"
-                        type="submit"
-                        onClick={() => this.updateTool(tool.id)}
-                      />
-                    </div>
-                  </AlignHorizontalRight>
-                </form>
-              </FormModal>
-            </Modal>
-          </section>
+                  <p>Você deseja deletar o registro ?</p>
+                </HeaderModalDelete>
+                <AlignHorizontalRight>
+                  <button type="submit" onClick={() => this.closeModal()}>Cancel</button>
+                  <Delete>
+                    <input
+                      type="button"
+                      value="Yes, remove"
+                      type="submit"
+                      onClick={() => this.removeTool(tool.id)}
+                    />
+                  </Delete>
+                </AlignHorizontalRight>
+              </form>
+            </ContainerModalDelete>
+          </Modal>
+          {/* form Modal Add */}
+          <Modal
+            visible={this.state.modalAdd}
+            width="400"
+            height="400"
+            effect="fadeInLeft"
+            onClickAway={() => this.closeModal()}
+          >
+            <div>
+              <FormModalAdd />
+            </div>
+          </Modal>
+          {/* form Modal Edit */}
+          <Modal
+            visible={this.state.modalUpdate}
+            width="400"
+            height="400"
+            effect="fadeInUp"
+            onClickAway={() => this.closeModal()}
+          >
+            <div>
+              <FormModalEdit />
+            </div>
+            <AlignHorizontalRight>
+              <button type="submit" onClick={() => this.closeModal()}>
+                  Cancel
+              </button>
+              <div>
+                <input
+                  type="button"
+                  value="Yes, Edite"
+                  type="submit"
+                  onClick={() => this.updateTool(tool.id)}
+                />
+              </div>
+            </AlignHorizontalRight>
+          </Modal>
         </div>
       ))
     ) : (
-      <div>Find no tools</div>
+      <div>Find tools</div>
     );
 
     return (

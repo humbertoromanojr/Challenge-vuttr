@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import DeleteIcon from '../../assets/images/delete2.svg';
 import CloseIcon from '../../assets/images/close.svg';
 import AddIcon from '../../assets/images/plus.svg';
 import InputSearchIcon from '../../assets/images/search.svg';
@@ -206,6 +205,28 @@ export const Delete = styled.div`
   }
 `;
 
+export const ContainerModalDelete = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 20px;
+
+  form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+`;
+
+export const HeaderModalDelete = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-content: left;
+`;
+
 export const ButtonEdit = styled.div`
   width: flex;
   align-items: center;
@@ -240,26 +261,4 @@ export const Tags = styled.div`
   font-size: 18;
   font-weight: bold;
   color: #222;
-`;
-
-export const ContainerModalDelete = styled.div`
-  display: flex;
-  flex: 1;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  padding: 20px;
-
-  form {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-  }
-`;
-
-export const HeaderModalDelete = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-content: left;
 `;
