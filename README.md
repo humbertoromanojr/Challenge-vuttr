@@ -144,7 +144,7 @@ yarn ou npm start
 ## Demostration
 
 <h1 align="center">
-  <img src="https://i.ibb.co/30Y5Y1L/bossabox-vuttr.gif" alt="bossabox-vuttr" border="0">
+  <img src="https://i.ibb.co/vQwxp0Z/bossaboxvuttr.gif" alt="bossaboxvuttr" border="0">
 </h1>
 
 
