@@ -6,17 +6,17 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    background-color: #dedce1;
   }
   html, body, #root{
-    height: 100%;
+    min-height: 100%;
     background-color: #dedce1;
   }
   body{
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
     background: #181818;
-    font-family: 'Montserrat', sans-serif;
-    color: #fff;
+    font-family: 'Roboto', sans-serif;
   }
   button{
     cursor: pointer;

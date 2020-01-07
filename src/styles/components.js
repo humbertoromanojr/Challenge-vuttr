@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex: 1;
   height: 100%;
   flex-direction: column;
+  background: #dedce1;
 `;
 
 export const Container = styled.div`
