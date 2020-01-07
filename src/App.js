@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Header from './components/Header';
 
-import './styles/global';
+import GlobalStyle from './styles/global';
 import { Wrapper, Container } from './styles/components';
 
 const App = () => (
@@ -25,6 +25,7 @@ const App = () => (
         <Header />
           <Container>
             <Routes />
+            <GlobalStyle />
             <ToastContainer autoClose={3000} />
          </Container>
       </Router>
