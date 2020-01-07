@@ -80,10 +80,6 @@ function Dashboard() {
     setLoading(true);
   }
 
-  if (loading) {
-    return <div />;
-  }
-
   return (
     <Container>
       <header>

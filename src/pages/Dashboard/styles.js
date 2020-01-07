@@ -14,6 +14,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 50px;
+  background: #ccc;
 
   header {
     display: flex;
@@ -21,9 +22,25 @@ export const Container = styled.div`
     justify-content: center;
     align-items: left;
     align-content: center;
-    width: 520px;
+    width: 620px;
   }
 `;
+
+export const ToolsListItem = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-content: center;
+  flex-direction: column;
+  padding: 10px;
+  height: 150px;
+  width: 620px;
+  box-shadow: 2px 1px 2px 1px #454545;
+  background-color: #fff;
+
+  margin-bottom: 20px;
+`;
+
 
 export const HeaderForm = styled.form`
   display: flex;
@@ -32,7 +49,7 @@ export const HeaderForm = styled.form`
   justify-content: space-between;
   align-items: center;
 
-  width: 520px;
+  width: 620px;
   margin-bottom: 15px;
 `;
 
@@ -45,7 +62,7 @@ export const InputSearch = styled.div`
   margin-top: 5px;
   border: solid 2px #666;
   padding: 5px 7px 5px 26px;
-  background: url(${InputSearchIcon}) no-repeat 7px center;
+  background: #fff url(${InputSearchIcon}) no-repeat 7px center;
 
   input {
     flex: 1;
@@ -146,13 +163,14 @@ export const ButtonAddHome = styled.div`
   align-items: center;
   font-size: 13px;
   height: 22px;
-  border: solid 2px #666;
-  width: 70px;
+  border: solid 1px #666;
+  width: 90px;
   /* push checkbox left */
   margin-left: 170px;
+  box-shadow: 2px 1px 2px 1px #454545;
 
   input {
-    width: 70px;
+    width: 90px;
     height: 22px;
     border: 0;
 
@@ -170,21 +188,6 @@ export const Close = styled.a`
     padding-left: 50px;
     color: #222;
   }
-`;
-
-export const ToolsListItem = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: flex-start;
-  align-content: center;
-  flex-direction: column;
-  padding: 10px;
-  height: 150px;
-  width: 500px;
-  box-shadow: 2px 1px 2px 1px #454545;
-  background-color: #fff;
-
-  margin-bottom: 20px;
 `;
 
 export const AlignHorizontal = styled.div`
