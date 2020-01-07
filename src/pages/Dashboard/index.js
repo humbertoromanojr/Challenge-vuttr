@@ -11,7 +11,7 @@ import Loading from '../../components/Loading';
 import api from '../../services/api';
 
 import { Container, ToolsListItem, AlignHorizontal, HeaderFormButtons,
-  HeaderForm, ButtonAddHome, InputSearch, CheckBox,
+  HeaderForm, ButtonAddHome, InputSearch, CheckBox, HeaderModal,
 } from './styles';
 
 import { getToolsRequest, deleteToolRequest, createToolRequest,
@@ -20,7 +20,7 @@ import { getToolsRequest, deleteToolRequest, createToolRequest,
 
 import DeleteIcon from '../../assets/images/delete2.svg';
 import EditIcon from '../../assets/images/share.svg';
-import AddIcon from '../../assets/images/plus2.png';
+import AddIcon from '../../assets/images/plus.svg';
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function Dashboard() {
     async function loadTools() {
       setLoading(true);
 
-      const response = await api.get(`tools`);
+      const response = await api.get(`tools?q=${search}`);
 
       const data = response.data.map(tool => ({
         ...tool,
@@ -93,12 +93,14 @@ function Dashboard() {
         <h3>Very Useful Tools to Remember</h3>
       </header>
       <HeaderForm>
-        <InputSearch>
-          <input type="text" size="10" name="search" placeholder="search" onChange={e => setSearch(e.target.value)} />
-        </InputSearch>
-        <CheckBox>
-          <input type="checkbox" value="tags" name="tags" onChange={e => setSearch(e.target.value)} /> <small>search in tags only</small>
-        </CheckBox>
+        <div>
+          <InputSearch>
+            <input type="text" size="20" name="search" placeholder="search" onChange={e => setSearch(e.target.value)} />
+          </InputSearch>
+          <CheckBox>
+            <input type="checkbox" value="tags" name="tags" onChange={e => setSearch(e.target.value)} /> <small>search in tags only</small>
+          </CheckBox>
+        </div>
         <ButtonAddHome>
           <input type="button" value="Add" onClick={() => handleOpenModalForm()} />
         </ButtonAddHome>
@@ -116,13 +118,13 @@ function Dashboard() {
                 <AlignHorizontal>
                   <span>{tool.title}</span>
                   <HeaderFormButtons>
-                    <div>
+                    {/* <div>
                       <img src={EditIcon} width="10" height="10" alt="Icon edit" />
                       <Link to={`/dashboard/${tool.id}/edit`}>editar</Link>
-                    </div>
+                    </div> */}
                     <div>
                       <img src={DeleteIcon} alt="Icon delete" />
-                      <input type="button" value="Remove" onClick={() => handleOpenModal(tool)} />
+                      <input type="button" value="remove" onClick={() => handleOpenModal(tool)} />
                     </div>
                   </HeaderFormButtons>
                 </AlignHorizontal>
@@ -141,19 +143,19 @@ function Dashboard() {
 
       {openModal && (
         <Modal>
-          <HeaderFormButtons>
+          <HeaderModal>
             <img src={DeleteIcon} alt="Icon delete" />
             <p>Remove tool</p>
-          </HeaderFormButtons>
+          </HeaderModal>
           <p>
             Deseja deletar esta Ferramenta: <strong>{selectedTool.title}</strong>
           </p>
           <div>
-            <button type="button" onClick={handleSubmit}>
-              Confirmar
-            </button>
             <button type="button" onClick={handleCloseModal}>
-              Cancelar
+              Cancel
+            </button>
+            <button type="button" onClick={handleSubmit}>
+              Yes, remove
             </button>
           </div>
         </Modal>
@@ -161,10 +163,10 @@ function Dashboard() {
 
       {openModalForm && (
         <Modal>
-          <HeaderFormButtons>
+          <HeaderModal>
             <img src={AddIcon} alt="Icone de inserção" />
             <p>Add new tool</p>
-          </HeaderFormButtons>
+          </HeaderModal>
           <Form onSubmit={handleCreate}>
             <label>Tool Name</label>
             <Input
@@ -197,13 +199,12 @@ function Dashboard() {
               name="tags"
               required
             />
-
           <div>
-            <button type="submit">
-              Confirmar
-            </button>
             <button type="button" onClick={handleCloseModal}>
               Cancelar
+            </button>
+            <button type="submit">
+              Add tool
             </button>
           </div>
           </Form>

@@ -22,7 +22,8 @@ export const Container = styled.div`
     justify-content: center;
     align-items: left;
     align-content: center;
-    width: 620px;
+    width: 750px;
+    margin-top: 50px;
   }
 `;
 
@@ -32,17 +33,18 @@ export const ToolsListItem = styled.div`
   justify-content: flex-start;
   align-content: center;
   flex-direction: column;
-  padding: 20px;
-  height: 150px;
-  width: 620px;
-  box-shadow: 2px 1px 2px 1px #454545;
+  padding: 15px 20px;
+  height: 190px;
+  width: 750px;
+  border: 2px solid #666;
+  box-shadow: 0px 0px 0px 0px #454545;
   background-color: #fff;
   transition: all ease 0.25s;
 
   margin-bottom: 20px;
 
   &:hover {
-    box-shadow: 4px 2px 4px 2px #565656;
+    box-shadow: 2px 1px 2px 1px #565656;
     transition: all ease 0.15s;
   }
 
@@ -63,9 +65,9 @@ export const ToolsListItem = styled.div`
 
 export const AlignHorizontal = styled.div`
   display: flex;
-  flex: 1;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 10px;
 
   button {
     width: 70px;
@@ -79,17 +81,32 @@ export const AlignHorizontal = styled.div`
     border: 0;
     background-color: #fff;
   }
+
+  span {
+    color: #f0f;
+    font-size: 18px;
+    font-weight: bold;
+  }
 `;
 
 export const HeaderForm = styled.form`
   display: flex;
-  flex: 1;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  width: 620px;
-  margin-bottom: 15px;
+  width: 750px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  div {
+    display: flex;
+    flex-direction: row;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
 `;
 
 export const HeaderFormButtons = styled.a`
@@ -97,20 +114,16 @@ export const HeaderFormButtons = styled.a`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 10px;
 
   p {
-    font-size: 18px;
     padding-left: 5px;
-  }
-
-  div {
-    padding-left: 20px;
   }
 
   a {
     padding-left: 5px;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 16px;
     color: #222;
   }
 
@@ -119,23 +132,46 @@ export const HeaderFormButtons = styled.a`
     height: 12px;
     margin-right: 10px;
   }
+
+  input {
+    font-size: 16px;
+  }
+`;
+
+
+export const HeaderModal = styled.a`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+
+  img {
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
 `;
 
 export const ButtonAddHome = styled.div`
   display: flex;
-  align-items: center;
-  font-size: 13px;
-  height: 22px;
-  border: solid 1px #666;
-  width: 90px;
-  /* push checkbox left */
-  margin-left: 170px;
-  box-shadow: 2px 1px 2px 1px #454545;
+  justify-content: flex-end;
+  height: 32px;
+  border: solid 1px #333;
+  width: 100px;
+  box-shadow: 3px 3px 1px 1px #333;
 
   input {
-    width: 90px;
-    height: 22px;
+    width: 100px;
+    height: 32px;
     border: 0;
+    font-size: 16px;
 
     background: #fff url(${AddIcon}) no-repeat 7px center;
   }
@@ -145,8 +181,8 @@ export const InputSearch = styled.div`
   display: flex;
   align-items: left;
   font-size: 15px;
-  height: 16px;
-  width: 110px;
+  height: 36px;
+  width: 250px;
   margin-top: 5px;
   border: solid 2px #666;
   padding: 5px 7px 5px 26px;
@@ -156,22 +192,28 @@ export const InputSearch = styled.div`
     flex: 1;
     font-size: 16px;
     color: #121212;
-    padding: 5px;
+    padding: 0 0 0 5px;
     border: 0;
+    width: 240px;
+    background: transparent;
   }
 `;
 
 export const CheckBox = styled.div`
   display: flex;
-  align-items: left;
+  flex-direction: row;
+  text-align: left;
+  align-items: center;
 
   small {
-    margin-top: 2px;
+    padding: 2px;
+    margin-left: 5px;
+    font-size: 12px;
   }
 `;
 
 export const Close = styled.a`
-  font-size: 10px;
+  font-size: 12px;
   background: url(${CloseIcon}) no-repeat 7px center;
 
   a {
