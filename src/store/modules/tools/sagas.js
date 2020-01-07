@@ -27,6 +27,7 @@ export function* createTool({ payload }) {
     yield call(api.post, 'tools', data);
 
     toast.success('Ferramenta criado com sucesso');
+    history.push('/dashboard');
   } catch (error) {
     toast.error('Falha: Ferramenta não foi criado');
   }

@@ -1,5 +1,6 @@
-# Principais bibliotecas
-<hr>
+<h1 align="center">
+DESAFIO VUTTR
+</h1>
 
 ### Axios
 
@@ -85,30 +86,7 @@ Já o pacote react-redux, faz a ponte e liga o React ao Redux
 
 Este pacote e para fazer um layout melhor e mais profissional
 
-exemplo:
 
---- components/HeaderModalAdd/styles.js
-
-import styled from 'styled-components';
-
-import AddIcon from '../../assets/images/plus.svg';
-
-export const Container = styled.div`display: flex; flex-direction: column; align-items: left; padding: 20px;`;
-
-export styled
-
---- components/HeaderModalAdd/index.js
-
-import { Container } from './styles';
-
-render() {
-return (
-<Container>
-...
-</Container>
-)
-
-}
 
 ### Eslint, .editorconfig e Prettier
 
@@ -125,7 +103,7 @@ link: https://webmasters.googleblog.com/2015/10/deprecating-our-ajax-crawling-sc
 
 O Pacote History serve para ajudar no SEO, para o pushState() dos navegadores, como tem explicado no link acima para os webmaters.googleblog
 
-### Suggestions for improvement to the challenge
+### Sugestões de mehoria para o desafio
 
 01 - No desafio teria que ter um Footer, para ver o conhecimento em css para poder ver o grau de conhecimento em css, como alinhar todo o conteúdo do projeto no footer;
 
@@ -133,7 +111,9 @@ O Pacote History serve para ajudar no SEO, para o pushState() dos navegadores, c
 
 
 ### FRONT-END
--   [ReactJS](https://reactjs.org/)
+
+- ⚛️ **React Js** — A JavaScript library for building user interfaces
+
 -   [Redux](https://redux.js.org/)
 -   [Redux-Saga](https://redux-saga.js.org/)
 -   [React Router](https://github.com/ReactTraining/react-router)
@@ -149,17 +129,19 @@ O Pacote History serve para ajudar no SEO, para o pushState() dos navegadores, c
 
 ## Instruções
 
-Rodar a API JSON-SERVER na porta 3001 e com delay de 500ms
-`npx json-server db.json -p 3001 -w -d 500`
+```bash
+# Rodar a API JSON-SERVER na porta 3001 e com delay de 500ms
+npx json-server db.json -p 3001 -w -d 500
 
-Instalar os pacotes
-`yarn ou npm install`
+# Instalar os pacotes
+yarn ou npm install
 
-Iniciar a aplicação
-`yarn ou nom start`
+# Iniciar a aplicação
+yarn ou npm start
+```
 
 
-## Demostração
+## Demostration
 
 
 

@@ -32,7 +32,7 @@ import DeleteIcon from '../../assets/images/delete2.svg';
 import EditIcon from '../../assets/images/share.svg';
 import AddIcon from '../../assets/images/plus2.png';
 
-function Dashboard({ match }) {
+function Dashboard() {
   const tools = useSelector(state => state.tools.data);
 
   const [search, setSearch] = useState('');
@@ -79,13 +79,6 @@ function Dashboard({ match }) {
     dispatch(createToolRequest(data));
     resetForm();
   }
-
-  function handleUpdate(data) {
-    const { id } = match.params;
-
-    dispatch(updateToolRequest(id, data));
-  }
-
 
   return (
     <Container>
@@ -157,7 +150,7 @@ function Dashboard({ match }) {
             <img src={AddIcon} alt="Icone de inserção" />
             <p>Add new tool</p>
           </HeaderFormButtons>
-          <Form onSubmit={match.params.id ? handleUpdate : handleCreate}>
+          <Form onSubmit={handleCreate}>
             <label>Tool Name</label>
             <Input
               type="text"
