@@ -37,9 +37,7 @@ function Dashboard() {
 
   const [search, setSearch] = useState('');
   const [title, setTitle] = useState('');
-/*  const [tags, setTags] = useState('');
-  const [description, setDescription] = useState('');
-  const [link, setLink] = useState(''); */
+  const [loading, setLoading] = useState(false);
 
   const [openModal, setOpenModal] = useState(false);
   const [openModalForm, setOpenModalForm] = useState(false);
@@ -69,6 +67,7 @@ function Dashboard() {
   function handleSubmit() {
     const { id } = selectedTool;
     dispatch(deleteToolRequest(id));
+    setLoading(true);
   }
 
   function handleOpenModalForm() {
@@ -78,6 +77,11 @@ function Dashboard() {
   function handleCreate(data, { resetForm }) {
     dispatch(createToolRequest(data));
     resetForm();
+    setLoading(true);
+  }
+
+  if (loading) {
+    return <div />;
   }
 
   return (
