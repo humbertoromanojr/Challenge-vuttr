@@ -1,30 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Input, Form } from '@rocketseat/unform';
 
 import NotFound from '../../components/NotFound';
 import Modal from '../../components/Modal';
+import Loading from '../../components/Loading';
 
-import {
-  Container,
-  ToolsListItem,
-  AlignHorizontal,
-  Description,
-  Tags,
-  HeaderForm,
-  ButtonAddHome,
-  InputSearch,
-  CheckBox,
-  ContainerButtonTop,
-  HeaderFormButtons,
+import api from '../../services/api';
+
+import { Container, ToolsListItem, AlignHorizontal, HeaderFormButtons,
+  HeaderForm, ButtonAddHome, InputSearch, CheckBox,
 } from './styles';
 
-import {
-  getToolsRequest,
-  deleteToolRequest,
-  createToolRequest,
+import { getToolsRequest, deleteToolRequest, createToolRequest,
   updateToolRequest,
 } from '../../store/modules/tools/actions';
 
@@ -33,25 +23,41 @@ import EditIcon from '../../assets/images/share.svg';
 import AddIcon from '../../assets/images/plus2.png';
 
 function Dashboard() {
-  const tools = useSelector(state => state.tools.data);
+  const dispatch = useDispatch();
 
   const [search, setSearch] = useState('');
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(false);
+  const [tools, setTools] = useState([]);
 
   const [openModal, setOpenModal] = useState(false);
   const [openModalForm, setOpenModalForm] = useState(false);
 
   const [selectedTool, setSelectedTool] = useState(null);
-  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function loadTools() {
+      setLoading(true);
+
+      const response = await api.get(`tools`);
+
+      const data = response.data.map(tool => ({
+        ...tool,
+      }));
+
+      setTools(response.data);
+      setLoading(false);
+    }
+
+    loadTools();
+  }, [tools]);
 
   useEffect(() => {
     dispatch(getToolsRequest(search));
   }, [dispatch, search]);
 
   useEffect(() => {
-    setOpenModal(false);
-    setOpenModalForm(false);
+    setLoading(false);
   }, [tools]);
 
   function handleCloseModal() {
@@ -67,7 +73,7 @@ function Dashboard() {
   function handleSubmit() {
     const { id } = selectedTool;
     dispatch(deleteToolRequest(id));
-    setLoading(true);
+    setOpenModal(false);
   }
 
   function handleOpenModalForm() {
@@ -77,7 +83,7 @@ function Dashboard() {
   function handleCreate(data, { resetForm }) {
     dispatch(createToolRequest(data));
     resetForm();
-    setLoading(true);
+    setOpenModalForm(false);
   }
 
   return (
@@ -97,8 +103,11 @@ function Dashboard() {
           <input type="button" value="Add" onClick={() => handleOpenModalForm()} />
         </ButtonAddHome>
       </HeaderForm>
-      {
-        tools.length === 0 ? (
+      {loading ? (
+        <Loading>Loading...</Loading>
+      ) : (
+      <>
+      {tools.length === 0 ? (
           <NotFound />
             ) : (
           tools.map(tool => (
@@ -106,7 +115,7 @@ function Dashboard() {
               <ToolsListItem key={tool.id}>
                 <AlignHorizontal>
                   <span>{tool.title}</span>
-                  <ContainerButtonTop>
+                  <HeaderFormButtons>
                     <div>
                       <img src={EditIcon} width="10" height="10" alt="Icon edit" />
                       <Link to={`/dashboard/${tool.id}/edit`}>editar</Link>
@@ -115,15 +124,21 @@ function Dashboard() {
                       <img src={DeleteIcon} alt="Icon delete" />
                       <input type="button" value="Remove" onClick={() => handleOpenModal(tool)} />
                     </div>
-                  </ContainerButtonTop>
+                  </HeaderFormButtons>
                 </AlignHorizontal>
-                <Description>{tool.description}</Description>
+                <p>{tool.description.length < 182
+                    ? `${tool.description}`
+                    : `${tool.description.substring(0, 180)}...`}
+                </p>
                 <span>{tool.link}</span>
-                <Tags>#{tool.tags}</Tags>
+                <label>#{tool.tags}</label>
               </ToolsListItem>
             </div>
           ))
       )}
+      </>
+      )}
+
       {openModal && (
         <Modal>
           <HeaderFormButtons>
