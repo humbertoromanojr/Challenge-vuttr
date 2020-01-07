@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import { Container, LoadingStyles, Message } from './styles';
 
-import LoadingImg from '~/assets/images/loading.gif';
+// import LoadingImg from '../../assets/images/loading.gif';
 
 export default function Loading({ message }) {
   return (
     <Container>
       <LoadingStyles />
-      <img src={LoadingImg} alt="Carregando" />
+      {/* <img src={LoadingImg} alt="Carregando" /> */}
       <Message>{message}</Message>
     </Container>
   );
