@@ -31,8 +31,9 @@ export const Content = styled.div`
       color: #333;
       border: 1px solid #454545;
       cursor: pointer;
+      margin-top: 30px;
       margin-left: 10px;
-      padding: 5px 10px;
+      padding: 10px 10px;
       box-shadow: 2px 1px 2px 1px #454545;
       cursor: pointer;
       transition: all 0.30 ease;
@@ -43,8 +44,9 @@ export const Content = styled.div`
         color: #333;
         border: 1px solid #454545;
         cursor: pointer;
+        margin-top: 30px;
         margin-left: 10px;
-        padding: 5px 10px;
+        padding: 10px 10px;
         box-shadow: 2px 1px 2px 1px #454545;
         cursor: pointer;
         transition: all 0.30 ease;
@@ -116,7 +118,7 @@ export const Content = styled.div`
         border: 1px solid #454545;
         cursor: pointer;
         margin-left: 10px;
-        padding: 5px 10px;
+        padding: 10px 10px;
         box-shadow: 2px 1px 2px 1px #454545;
         cursor: pointer;
       }

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import { Container, Content } from './styles';
 
-export default function Modal({ children }) {
+export default function Modal({ children, size }) {
   return (
     <Container>
-      <Content>{children}</Content>
+      <Content size={size}>{children}</Content>
     </Container>
   );
 }
@@ -16,4 +16,10 @@ Modal.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]).isRequired,
+  size: PropTypes.string,
 };
+
+Modal.defaultProps = {
+  size: 'default',
+};
+
