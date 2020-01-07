@@ -1,6 +1,5 @@
-import React from 'react';
-
-import api from '../../services/api';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   Container,
@@ -14,45 +13,43 @@ import {
   Form,
 } from './styles';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
+import {
+  getToolsRequest,
+} from '../../store/modules/tools/actions';
 
-    this.state = {
-      loading: false,
-    };
-  }
+function Header() {
+  const tools = useSelector(state => state.tools.data);
 
-  searching = () => {
-    api.get('/tools?q=').then((res) => {
-      this.setState({
-        tools: res.data,
-      });
-    });
-  }
+  const [search, setSearch] = useState('');
 
-  render() {
-    return (
-      <Container>
-        <Menu>
-          <ArrowLeft />
-          <ArrowRight />
-          <Delete />
-          <Home />
-        </Menu>
+  const dispatch = useDispatch();
 
-        <Form method="get">
-          <Search>
-            <input type="text" name="q" placeholder="https://" />
-          </Search>
 
-          <ButtonSearch>
-            <button onClick={() => this.searching()}>Search</button>
-          </ButtonSearch>
-        </Form>
-      </Container>
-    );
-  }
+  useEffect(() => {
+    dispatch(getToolsRequest(search));
+  }, [dispatch, search]);
+
+  return (
+    <Container>
+      <Menu>
+        <ArrowLeft />
+        <ArrowRight />
+        <Delete />
+        <Home />
+      </Menu>
+
+      <Form>
+        <Search>
+          <input type="text" placeholder="https://" name="search" onChange={e => setSearch(e.target.value)} />
+        </Search>
+
+        <ButtonSearch>
+          <button onClick={e => setSearch(e.target.value)}>Search</button>
+        </ButtonSearch>
+      </Form>
+    </Container>
+  );
+
 }
 
 export default Header;

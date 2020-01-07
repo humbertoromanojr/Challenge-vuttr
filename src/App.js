@@ -1,13 +1,19 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+// import { PersistGate } from 'redux-persist/integration/react';
+import { Router } from 'react-router-dom';
+
 import './config/reactotron';
 
-import store from './store';
+import Routes from './routes';
+import history from './services/history';
+
+import { store } from './store';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import Header from './components/Header';
-import Content from './components/Content';
-import Footer from './components/Footer';
 
 import './styles/global';
 import { Wrapper, Container } from './styles/components';
@@ -15,12 +21,13 @@ import { Wrapper, Container } from './styles/components';
 const App = () => (
   <Provider store={store}>
     <Wrapper>
-      <Header />
-      <Container>
-        <Content />
-        <Router exact path="/" component={Content} />
-      </Container>
-      <Footer />
+      <Router history={history}>
+        <Header />
+          <Container>
+            <Routes />
+            <ToastContainer autoClose={3000} />
+         </Container>
+      </Router>
     </Wrapper>
   </Provider>
 );

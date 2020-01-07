@@ -16,7 +16,7 @@ export default function Tool(state = INITIAL_STATE, action) {
         },
       ];
     case REMOVE_TOOL:
-      return state.filter(({ id }) => id !== action.id);
+      return state.filter(id => id !== action.id);
     case UPDATE_TOOL:
       return state.map(tool => (tool.id === action.id ? { ...tool, ...action } : tool));
     default:

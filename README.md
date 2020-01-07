@@ -1,10 +1,8 @@
-# About Packages in Project
+### Principais bibliotecas
 
-<<<<<<< HEAD
+
+
 ### Axios
-=======
-# Axios
->>>>>>> 99f8bb68400a63ccad97d96d0618c8ccbd43234e
 
 usado para poder comsumir a API, nesse caso eu usei um arquivo externo para instanciar a API, nesse arquivo:
 

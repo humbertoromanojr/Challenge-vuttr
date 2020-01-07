@@ -25,11 +25,12 @@ export const Container = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const HeaderForm = styled.form`
   display: flex;
   flex: 1;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
   width: 520px;
   margin-bottom: 15px;
@@ -39,16 +40,18 @@ export const InputSearch = styled.div`
   display: flex;
   align-items: left;
   font-size: 15px;
-  height: 12px;
-  width: 90px;
+  height: 16px;
+  width: 110px;
+  margin-top: 5px;
   border: solid 2px #666;
-  padding: 0px 7px 6px 26px;
+  padding: 5px 7px 5px 26px;
   background: url(${InputSearchIcon}) no-repeat 7px center;
 
   input {
     flex: 1;
-    font-size: 13px;
+    font-size: 16px;
     color: #121212;
+    padding: 5px;
     border: 0;
   }
 `;
@@ -102,8 +105,40 @@ export const ContainerButtonTop = styled.div`
   height: 22px;
 
   div {
-    padding-left: 10px;
+    padding-left: 20px;
   }
+
+  a {
+    padding-left: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    color: #222;
+  }
+
+  img {
+    width: 12px;
+    height: 12px;
+    margin-right: 0px;
+  }
+`;
+
+export const HeaderFormButtons = styled.a`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  p {
+    font-size: 18px;
+    padding-left: 5px;
+  }
+
+  img {
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+  }
+
 `;
 
 export const ButtonAddHome = styled.div`
@@ -120,6 +155,7 @@ export const ButtonAddHome = styled.div`
     width: 70px;
     height: 22px;
     border: 0;
+
     background: #fff url(${AddIcon}) no-repeat 7px center;
   }
 `;
@@ -234,6 +270,7 @@ export const ButtonEdit = styled.div`
   height: 32px;
   border: solid 2px #666;
   width: 90px;
+  margin-right: 10px;
 
   input {
     width: 180px;
