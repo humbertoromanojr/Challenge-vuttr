@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Input, Form } from '@rocketseat/unform';
@@ -24,6 +24,7 @@ import AddIcon from '../../assets/images/plus.svg';
 
 function Dashboard() {
   const dispatch = useDispatch();
+  // const tools = useSelector(state => state.tools.data)
 
   const [search, setSearch] = useState('');
   const [title, setTitle] = useState('');
