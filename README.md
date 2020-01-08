@@ -3,7 +3,6 @@ DESAFIO VUTTR
 </h1>
 
 ### Axios
-
 usado para poder comsumir a API, nesse caso eu usei um arquivo externo para instanciar a API, nesse arquivo:
 
 --- services/api.js
@@ -28,7 +27,6 @@ api.get('/tools').then((res) => {
 }
 
 ### prop-types
-
 Pacote que serve para facilitar a vida dos Devs, nele tem quais as Propriedades e Tipo de um component.
 
 Exemplo:
@@ -48,48 +46,26 @@ tags: PropTypes.string,
 
 
 ### react-router-dom
-
-Este pacote serve para fazer a navegação de telas na aplicação, mais não foi necessário nesse projeto, foi configurado o básico, mesmo assim o deixei porque e um pacote geralmente sempre usado, afinal uma aplicação sempre tem sua navegação.
-
-exemplo:
-
---- App.js
-
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-import Header from './components/Header';
-import Content from './components/Content';
-import Footer from './components/Footer';
-
-<Container>
-  <Content />
-  <Router exact path="/" component={Content} />
-</Container>
+Este pacote serve para fazer a navegação de telas na aplicação.
 
 ### reactotron-react-js, reactotron-redux e reactotron-redux-saga
-
 Estes três pacotes servem para a mesma coisa, debugar sua aplicação com o Reactotron.
 
 - reactotron-react-js: Este e para toda a aplicação em nivél de react js;
 - reactotron-redux: Este e para debugar o redux de sua aplicação;
 - reactotron-redux-saga: E este e para debugar os Redux-Saga de sua aplicação
 
-os proóprios nomes são bem sugestivos e já conta o que ele fará em sua aplicação, nesse projeto eu não usei para Redux-saga, apenas configurei como padrão para debug.
+Os próprios nomes são bem sugestivos e já conta o que ele fará em sua aplicação, nesse projeto eu não usei para Redux-saga, apenas configurei como padrão para debug. Mas e aconselhado usar o Reactototron na web se tiver configurado o Redux, fora isso não precisa instalar para debugar na web.
 
 ### redux e react-redux
-
 Este pacote e muito importa, nele e que fica 99% do estado de sua aplicaçãol ele no store gerencia e falicita nossa vida de Dev e gerencia todo o state de nossa aplicação, não irei me extender muito nessa questão, porque e um assunto complexo. Ele veio do conceito de Flux, unica fonte da verdade.
 
 Já o pacote react-redux, faz a ponte e liga o React ao Redux
 
 ### Styled-components
-
 Este pacote e para fazer um layout melhor e mais profissional
 
-
-
 ### Eslint, .editorconfig e Prettier
-
 São pacotes de configuração de ambiente de Desenvolvimento, servem para um melhor desempenho em equipes que estão desenvolvendo o mesmo projeto.
 
 - Eslint: Serve para demostrar os Error dos padrões dos Codes de sua aplicação;
@@ -97,17 +73,15 @@ São pacotes de configuração de ambiente de Desenvolvimento, servem para um me
 - Prettier: Serve para deixar os Codes bem aninhados
 
 ### SEO e history
-
 Sobre a atuais diretrizes do SEO para sua aplicação JS
 link: https://webmasters.googleblog.com/2015/10/deprecating-our-ajax-crawling-scheme.html
 
 O Pacote History serve para ajudar no SEO, para o pushState() dos navegadores, como tem explicado no link acima para os webmaters.googleblog
 
-### Sugestões de mehoria para o desafio
+### Sugestões de melhoria para o desafio
+01 - No desafio teria que ter um Footer, para ver e ter mais css e para poder ver o grau de conhecimento, como alinhar todo o conteúdo do projeto no footer;
 
-01 - No desafio teria que ter um Footer, para ver o conhecimento em css para poder ver o grau de conhecimento em css, como alinhar todo o conteúdo do projeto no footer;
-
-02 - Nesse projeto do challenge e mais uma comprovação se o canditado sabe fazer um simpes CRUD, mais como não pediram o Update, isso também deveria pelo menos estar como Bonus;
+02 - Nesse projeto do challenge e mais uma comprovação se o canditado sabe fazer um simpes CRUD, mais como não pediram o Update, e usar input mask, notificações com Toastify como eu usei, acho bem bacana a animação, isso também deveria pelo menos estar como Bonus;
 
 
 ### FRONT-END
@@ -126,7 +100,6 @@ O Pacote History serve para ajudar no SEO, para o pushState() dos navegadores, c
 -   [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
 
-
 ## Instruções
 
 ```bash
@@ -139,7 +112,6 @@ yarn ou npm install
 # Iniciar a aplicação
 yarn ou npm start
 ```
-
 
 ## Demostration
 

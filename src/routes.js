@@ -7,7 +7,7 @@ import DashboardForm from './pages/DashboardForm';
 export default function Routes() {
   return (
     <Switch>
-      <Route path="/dashboard" exact component={Dashboard} />
+      <Route path="/" exact component={Dashboard} />
       <Route path="/dashboard/:id/edit" exact component={Dashboard} />
     </Switch>
   );
