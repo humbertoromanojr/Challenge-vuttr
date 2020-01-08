@@ -27,7 +27,7 @@ export function* createTool({ payload }) {
     yield call(api.post, 'tools', data);
 
     toast.success('Ferramenta criado com sucesso');
-    history.push('/dashboard');
+    history.push('/');
   } catch (error) {
     toast.error('Falha: Ferramenta não foi criado');
   }
@@ -52,7 +52,7 @@ export function* deleteTool({ payload }) {
     yield call(api.delete, `tools/${id}`);
 
     toast.success('Ferramenta deletada com sucesso');
-    history.push('/dashboard');
+    history.push('/');
   } catch (error) {
     toast.error('Falha: Ferramenta não foi removida');
   }
